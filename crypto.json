@@ -1,4 +1,9 @@
 {
     "mainfiat": "usd",
-    "maincrypto": "eth"
+    "startfiatamount": 100,
+    "maincrypto": "eth",
+    "tradingcrypto": "btc",
+    "profit": 1.5,
+    "sellcommission": 0.001,
+    "buycommission": 0.001
 }
