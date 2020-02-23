@@ -1,5 +1,5 @@
 #import pysqlite3
-#import sqlite3
+import sqlite3
 #https://docs.python.org/3.8/library/sqlite3.html
 
 class Database:
@@ -16,13 +16,11 @@ class Database:
         except sqlite3.Error as error:
             print("Error while connecting to sqlite", error)
     
-    def wirite(self, data):
-        query = 'INSERT'
-        self.cursor.excute(query, data)
+    def wiriteQuery(self, query):
+        self.cursor.excute(query)
         self.connection.commit()
     
-    def read(self):
-        query = 'READ'
+    def readQuery(self, query):
         self.cursor.execute(query)
         data = self.cursor.fetchall()
         return data
