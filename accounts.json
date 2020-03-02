@@ -1,0 +1,16 @@
+{   
+    "traiding":{
+        "main_fiat_account" : "usd",
+        "main_crypto_account" : "eth",
+        "traiding_cryptos" : [
+            "bitcoin",
+            "litecoin"
+        ],
+        "profit_precent": 2
+    },
+    "symulation":{
+        "start_fiat_amount": 100,
+        "start_crypto_amount": 0
+        
+    }
+}
