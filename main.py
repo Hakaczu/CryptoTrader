@@ -1,8 +1,8 @@
-from Database import Database
+from Log import Log
+from Config import Config
 
-db = Database("trades.db")
-db.writeLog('none', 'initial log', 0)
+cf = Config("accounts.json")
+cf.loadConf()
 
-logs = db.readLog10()
-for log in logs:
-    print(log)
+lg = Log(cf.mainCrypto)
+lg.initLog('Type: Simulation; ')

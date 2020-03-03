@@ -4,8 +4,9 @@ import datetime
 #https://docs.python.org/3.8/library/sqlite3.html
 
 class Database:
-    def __init__(self, path):
-        self.path = path
+    path = "trades.db"
+
+    def __init__(self):
         self.open()
 
     def open(self):
@@ -18,8 +19,8 @@ class Database:
     
     def writeLog(self, curr_id, status, rate):
         date = datetime.datetime.now()
-        date = date.strftime('%Y-%M-%d')
-        query = "INSERT INTO trade_log(date, curr_id, rate, status) VALUES('" + date  + "', '" + curr_id + "', '" + status + "', " + str(rate) +")"
+        date = date.strftime('%Y-%m-%d %H:%M:%S')
+        query = "INSERT INTO trade_log(date, curr_id, rate, status) VALUES('" + date  + "', '" + curr_id + "', " + str(rate) + ", '" + status +"')"
         cur = self.connection.cursor()
         cur.execute(query)
         self.connection.commit()
@@ -31,8 +32,6 @@ class Database:
         cur.execute(query)
         res =  cur.fetchall()
         return res
-    
-    
 
     def close(self):
         self.connection.close
