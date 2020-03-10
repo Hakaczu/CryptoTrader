@@ -12,5 +12,5 @@ class Config:
             data = json.load(json_file)
             self.mainFiat = data['traiding']['main_fiat_account']
             self.mainCrypto = data['traiding']['main_crypto_account']
-            self.traidingCrypto = data['traiding']['traiding_cryptos']
+            self.traidingCrypto = data['traiding']['traiding_crypto']
             self.profit = data['traiding']['profit_precent']

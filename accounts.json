@@ -2,10 +2,7 @@
     "traiding":{
         "main_fiat_account" : "usd",
         "main_crypto_account" : "eth",
-        "traiding_cryptos" : [
-            "bitcoin",
-            "litecoin"
-        ],
+        "traiding_crypto" : "bitcoin",
         "profit_precent": 2
     },
     "symulation":{

@@ -8,6 +8,7 @@ class Database:
 
     def __init__(self):
         self.open()
+        self.data = datetime.datetime
 
     def open(self):
         try:
@@ -17,12 +18,16 @@ class Database:
         except sqlite3.Error as error:
             print("Error while connecting to sqlite", error)
     
-    def writeLog(self, curr_id, status, rate):
-        date = datetime.datetime.now()
+    def prepareData(self):
+        date = self.data.now()
         date = date.strftime('%Y-%m-%d %H:%M:%S')
-        query = "INSERT INTO trade_log(date, curr_id, rate, status) VALUES('" + date  + "', '" + curr_id + "', " + str(rate) + ", '" + status +"')"
+        return date
+
+    def writeLog(self, data):
+        date = self.prepareData()
+        query = "INSERT INTO Log(date, sid, main_crypto, rate, trade_crypto, status, decision, tid) VALUES('" + date + "', ?, ?, ?, ?, ?, ?, ?)"
         cur = self.connection.cursor()
-        cur.execute(query)
+        cur.execute(query, data)
         self.connection.commit()
         return cur.lastrowid
 
