@@ -23,6 +23,21 @@ class Log:
 
         self.lastid = self.db.writeLog(data)
 
+    def log(self, status, decision, rate, tid = 'null'):
+        
+        data = []
+
+        data.append(self.sid)
+        data.append(self.mc)
+        data.append(rate)
+        data.append(self.tc)
+        data.append(status)
+        data.append(decision)
+        data.append(tid)
+
+        self.lastid = self.db.writeLog(data)
+    
+
 
     
    
