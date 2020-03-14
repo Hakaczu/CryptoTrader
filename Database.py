@@ -31,12 +31,21 @@ class Database:
         self.connection.commit()
         return cur.lastrowid
 
-    def readLog10(self):
-        query = "SELECT date, curr_id, rate, status FROM trade_log LIMIT 10"
+    # def readLog10(self):
+    #     query = "SELECT date, curr_id, rate, status FROM trade_log LIMIT 10"
+    #     cur = self.connection.cursor()
+    #     cur.execute(query)
+    #     res =  cur.fetchall()
+    #     return res
+
+    def writeTransaction(self, data):
+        date = self.prepareData()
+        query = "INSERT INTO Transactions(date, sid, main_crypto, rate, trade_crypto, amount, profit, type) VALUES('" + date + "', ?, ?, ?, ?, ?, ?, ?)"
         cur = self.connection.cursor()
-        cur.execute(query)
-        res =  cur.fetchall()
-        return res
+        cur.execute(query, data)
+        self.connection.commit()
+        return cur.lastrowid
+
 
     def close(self):
         self.connection.close
