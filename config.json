@@ -1,6 +1,6 @@
 {
     "type": "sim",
-    "start_sim_crypto": 100,
+    "tradingAmount": 100,
     "maincrypto": "eth",
     "tradingcrypto": "bitcoin",
     "profit": 1.5,

@@ -2,11 +2,11 @@ from Database import Database
 
 class Log:
 
-    def __init__(self, main_crypto, sid, trade_crypto):
+    def __init__(self, mainCrypto, sid, tradingCrypto):
         self.db = Database()
-        self.mc = main_crypto
+        self.mc = mainCrypto
         self.sid = sid
-        self.tc = trade_crypto
+        self.tc = tradingCrypto
         
     def initLog(self, status, decision):
         rate = 0

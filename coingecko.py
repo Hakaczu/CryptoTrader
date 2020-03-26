@@ -1,7 +1,5 @@
 from pycoingecko import CoinGeckoAPI
 import numpy
-
-
 class CoinGecko:
 
     def __init__(self):
@@ -20,6 +18,11 @@ class CoinGecko:
         self.avg48 = numpy.average(self.data48)
         self.max48 = numpy.max(self.data48)
         self.min48 = numpy.min(self.data48)
+
+        print("48h historical for " + tradingcrypto)
+        print("Average: " + str(self.avg48) + " " + maincrypto)
+        print("Maximum: " + str(self.max48) + " " + maincrypto)
+        print("Minimum: " + str(self.min48) + " " + maincrypto)
     
     def getPrice(self, maincrypto, tradingcrypto):
         price = self.api.get_price(ids = tradingcrypto, vs_currencies = maincrypto)
