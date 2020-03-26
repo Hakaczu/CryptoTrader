@@ -49,3 +49,8 @@ class Database:
 
     def close(self):
         self.connection.close
+
+if __name__ == "__main__":
+    db = Database()
+    data = ['test', 'usd', 3333, 'eth', 5, 2, 'buy']
+    db.writeTransaction(data)

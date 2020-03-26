@@ -1,0 +1,9 @@
+{
+    "type": "sim",
+    "start_sim_crypto": 100,
+    "maincrypto": "eth",
+    "tradingcrypto": "bitcoin",
+    "profit": 1.5,
+    "sellcommission": 0,
+    "buycommission": 0
+}

@@ -36,7 +36,24 @@ class Log:
         data.append(tid)
 
         self.lastid = self.db.writeLog(data)
-    
+
+    def transaction(self, rate, amount, trtype, profit):
+
+        data = []
+        data.append(self.sid)
+        data.append(self.mc)
+        data.append(rate)
+        data.append(self.tc)
+        data.append(amount)
+        data.append(profit)
+        data.append(type)
+
+        tid = self.db.writeTransaction(data)
+        status = "Profit: " + str(profit) + "%"
+        decision = trtype
+        
+        self.log(status = status, decision = decision, rate = rate, tid = tid)
+
 
 
     
