@@ -1,3 +1,4 @@
+import numpy
 class Alghoritm:
     def __init__(self, target, commission = 0, margin = 0):
         # target is in precent
@@ -8,7 +9,6 @@ class Alghoritm:
    
     def checkSell(self, amount, curr, buyCurr):
         profit = self.sellProfit(amount = amount, curr = curr, buyCurr = buyCurr)
-        print("Sell Profit " + str(profit))
         if profit >= self.target:
             return True
         else:
@@ -18,12 +18,14 @@ class Alghoritm:
         pc = buyCurr * amount
         profit = ((amount * curr) - pc)/pc
         profit = profit * 100
+        profit = numpy.round_(profit, decimals=8)
         return profit
 
     def buyProfit(self, avgCurr, curr):
         profit = avgCurr - curr
         profit = profit / avgCurr
         profit = profit * 100
+        profit = numpy.round_(profit, decimals=8)
         return profit
 
     def checkBuy(self, avgCurr, minCurr, curr):
@@ -31,7 +33,6 @@ class Alghoritm:
             return True
         else:
             profit = self.buyProfit(avgCurr = avgCurr, curr = curr)
-            print("Buy Profit " + str(profit))
             if profit >= self.target:
                 return True
             else:

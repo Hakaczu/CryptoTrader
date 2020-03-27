@@ -46,7 +46,7 @@ class Log:
         data.append(self.tc)
         data.append(amount)
         data.append(profit)
-        data.append(type)
+        data.append(trtype)
 
         tid = self.db.writeTransaction(data)
         status = "Profit: " + str(profit) + "%"
@@ -57,4 +57,6 @@ class Log:
 
 
     
-   
+if __name__ == "__main__":
+    lg = Log("tet", "111", "tet3")
+    lg.transaction(1111, 1, "Buy" , 12)

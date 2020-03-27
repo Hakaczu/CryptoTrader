@@ -15,9 +15,9 @@ class CoinGecko:
             data.append(record[1])
         
         self.data48 = data
-        self.avg48 = numpy.average(self.data48)
-        self.max48 = numpy.max(self.data48)
-        self.min48 = numpy.min(self.data48)
+        self.avg48 = numpy.round_(numpy.average(self.data48), decimals=8)
+        self.max48 = numpy.round_(numpy.max(self.data48), decimals=8)
+        self.min48 = numpy.round_(numpy.min(self.data48), decimals=8)
 
         print("48h historical for " + tradingcrypto)
         print("Average: " + str(self.avg48) + " " + maincrypto)
@@ -26,16 +26,18 @@ class CoinGecko:
     
     def getPrice(self, maincrypto, tradingcrypto):
         price = self.api.get_price(ids = tradingcrypto, vs_currencies = maincrypto)
-        return price[tradingcrypto][maincrypto]
+        price = price[tradingcrypto][maincrypto]
+        price = numpy.round_(price, decimals=8)
+        return price
 
 
 
 if __name__ == "__main__":
     api = CoinGecko()
-    api.get48Data(maincrypto = 'usd', tradingcrypto = 'bitcoin')
+    api.get48Data(maincrypto = 'eth', tradingcrypto = 'bitcoin')
     print(api.max48)
     print(api.min48)
     print(api.avg48)
 
-    prc = api.getPrice(maincrypto = 'usd', tradingcrypto = 'bitcoin')
+    prc = api.getPrice(maincrypto = 'eth', tradingcrypto = 'bitcoin')
     print(prc)
