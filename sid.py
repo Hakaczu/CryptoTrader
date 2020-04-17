@@ -5,3 +5,7 @@ def generateSID(mode):
     date = date.strftime('%Y%m%d%H%M%S')
     sid = date + mode
     return sid
+
+if __name__ == "__main__":
+    sid = generateSID('trade')
+    print(sid)

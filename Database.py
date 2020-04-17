@@ -18,13 +18,13 @@ class Database:
         except sqlite3.Error as error:
             print("Error while connecting to sqlite", error)
     
-    def prepareData(self):
+    def prepareDate(self):
         date = self.data.now()
         date = date.strftime('%Y-%m-%d %H:%M:%S')
         return date
 
     def writeLog(self, data):
-        date = self.prepareData()
+        date = self.prepareDate()
         query = "INSERT INTO Log(date, sid, main_crypto, rate, trade_crypto, status, decision, tid) VALUES('" + date + "', ?, ?, ?, ?, ?, ?, ?)"
         cur = self.connection.cursor()
         cur.execute(query, data)
@@ -39,7 +39,7 @@ class Database:
     #     return res
 
     def writeTransaction(self, data):
-        date = self.prepareData()
+        date = self.prepareDate()
         query = "INSERT INTO Transactions(date, sid, main_crypto, rate, trade_crypto, amount, profit, type) VALUES('" + date + "', ?, ?, ?, ?, ?, ?, ?)"
         cur = self.connection.cursor()
         cur.execute(query, data)
