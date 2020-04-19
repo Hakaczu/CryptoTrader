@@ -76,6 +76,8 @@ def core():
     except KeyboardInterrupt:
         print("Press Ctrl-C to terminate while statement")
         pass
+    except:
+        print("Found Error Reset Core")
             
 
 if __name__ == "__main__":

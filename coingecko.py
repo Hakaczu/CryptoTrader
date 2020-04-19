@@ -5,6 +5,7 @@ class CoinGecko:
     def __init__(self):
         self.api = CoinGeckoAPI()
         ping = self.api.ping()
+        print(ping)
         print(ping['gecko_says'])
     
     def get48Data(self, maincrypto, tradingcrypto):
