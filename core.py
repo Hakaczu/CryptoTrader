@@ -36,7 +36,7 @@ def core():
     
     try:
         while True:
-            time.sleep(5)
+            time.sleep(20)
             currOld = curr
             curr = api.getPrice(maincrypto = conf.mainCrypto, tradingcrypto=conf.tradingCrypto)
             if currOld == curr:
@@ -45,12 +45,13 @@ def core():
                 decision = alg.checkSell(amount=botTradingAmount,curr=curr,buyCurr=buyCurr)
                 profit = alg.sellProfit(amount=botTradingAmount, curr=curr,buyCurr=buyCurr)
                 if decision == True:
-                    log.transaction(rate=curr, amount=botMainAmount, trtype="Sell", profit=profit)
+                    log.transaction(rate=curr, amount=botTradingAmount, trtype="Sell", profit=profit)
                     botMainAmount = curr * botTradingAmount
                     botTradingAmount = 0
                     decision = "Sell"
                     status = getStatus(profit=profit)
                     printLog(status=status, decision=decision, rate=curr, mainCrypto=conf.mainCrypto)
+                    api.get48Data(maincrypto = conf.mainCrypto, tradingcrypto  = conf.tradingCrypto)
                 else:
                     status = getStatus(profit=profit)
                     decision = "Wait of Sell" 
@@ -61,7 +62,7 @@ def core():
                 profit = alg.buyProfit(avgCurr=api.avg48, curr=curr)
                 if decision == True:
                     amount = botMainAmount / curr
-                    log.transaction(rate=curr, amount=amount, trtype="Buy", profit=profit)
+                    log.transaction(rate=curr, amount=botMainAmount, trtype="Buy", profit=profit)
                     botTradingAmount = amount
                     botMainAmount = 0
                     buyCurr = curr
