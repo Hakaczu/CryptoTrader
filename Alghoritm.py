@@ -5,7 +5,7 @@ class Alghoritm:
         self.target = target
         self.commission =  commission
         self.margin = margin
-        print("Trading Core is Ready")
+        print("Trading Alghoritm is Ready")
    
     def checkSell(self, amount, curr, buyCurr):
         profit = self.sellProfit(amount = amount, curr = curr, buyCurr = buyCurr)

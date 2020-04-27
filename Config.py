@@ -18,7 +18,7 @@ class Config:
             self.profit = data['profit']
     
     def writeConf(self):
-        print("Type: " + self.type)
+        print("Mode: " + self.type)
         print("Main Crypto: " + self.mainCrypto)
         print("Trading Crypto: " + self.tradingCrypto)
         print("Target profit: " + str(self.profit) + "%")

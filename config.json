@@ -3,7 +3,7 @@
     "tradingAmount": 100,
     "maincrypto": "eth",
     "tradingcrypto": "bitcoin",
-    "profit": 1.5,
+    "profit": 0.5,
     "sellcommission": 0,
     "buycommission": 0
 }
