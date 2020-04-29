@@ -11,6 +11,7 @@ class Core:
     botTradingAmount = 0
     buyCurr = 0
     curr = 0
+    seconds = 20
 
     def __init__(self):
         self.initConf()
@@ -56,7 +57,7 @@ class Core:
         self.api.get48Data(maincrypto = self.conf.mainCrypto, tradingcrypto  = self.conf.tradingCrypto)
         try:
             while True:
-                time.sleep(20)
+                time.sleep(self.seconds)
                 currOld = self.curr
                 self.curr = self.api.getPrice(maincrypto = self.conf.mainCrypto, tradingcrypto=self.conf.tradingCrypto)
                 if currOld == self.curr:
@@ -98,9 +99,9 @@ class Core:
         except KeyboardInterrupt:
             print("Press Ctrl-C to terminate while statement")
             pass
-        # except:
-        #     print("Found Error Reset Core")
-        #     self.run()
+        except:
+             print("Found Error Reset Core")
+             self.run()
 
             
 
