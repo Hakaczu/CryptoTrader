@@ -1,2 +1,7 @@
 Keys.py
 *.pyc
+.idea/vcs.xml
+.idea/modules.xml
+.idea/misc.xml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/CryptoTrader.iml
