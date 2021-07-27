@@ -1,1 +1,2 @@
 # CryptoTrader
+Traiding Simulator
