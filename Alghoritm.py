@@ -3,7 +3,7 @@ class Alghoritm:
     def __init__(self, target, commission = 0, margin = 0):
         # target is in precent
         self.target = target
-        self.commission =  commission
+        self.commission =  commission / 100
         self.margin = margin
         print("Trading Alghoritm is Ready")
    
@@ -16,11 +16,13 @@ class Alghoritm:
     
     def sellProfit(self, amount, curr, buyCurr):
         pc = buyCurr * amount
+        pc = pc - pc * self.commission
         profit = ((amount * curr) - pc)/pc
         profit = profit * 100
         profit = numpy.round_(profit, decimals=8)
         return profit
 
+    #TO DO Refactor buyProfit - must use amount
     def buyProfit(self, avgCurr, curr):
         profit = avgCurr - curr
         profit = profit / avgCurr
