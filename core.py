@@ -75,7 +75,7 @@ class Core:
                         self.api.get48Data(maincrypto = self.conf.mainCrypto, tradingcrypto  = self.conf.tradingCrypto)
                     else:
                         status = self.getStatus(profit=profit)
-                        decision = "Wait of Sell" 
+                        decision = "Wait for Sell" 
                         self.log.log(status=status, decision=decision, rate=self.curr)
                         self.printLog(status=status, decision=decision, rate=self.curr, mainCrypto=self.conf.mainCrypto)
                 else:
@@ -92,7 +92,7 @@ class Core:
                         self.printLog(status=status, decision=decision, rate=self.curr, mainCrypto=self.conf.mainCrypto)
                     else:
                         status = self.getStatus(profit=profit)
-                        decision = "Wait of Buy" 
+                        decision = "Wait for Buy" 
                         self.log.log(status=status, decision=decision, rate=self.curr)
                         self.printLog(status=status, decision=decision, rate=self.curr, mainCrypto=self.conf.mainCrypto)
                         self.api.get48Data(maincrypto = self.conf.mainCrypto, tradingcrypto  = self.conf.tradingCrypto)

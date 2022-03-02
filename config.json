@@ -4,6 +4,6 @@
     "maincrypto": "eth",
     "tradingcrypto": "bitcoin",
     "profit": 0.5,
-    "sellcommission": 0,
-    "buycommission": 0
+    "sellcommission": 0.1,
+    "buycommission": 0.1
 }
